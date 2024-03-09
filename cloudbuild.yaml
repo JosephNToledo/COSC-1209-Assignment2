@@ -1,6 +1,6 @@
 steps:
 # Use the Docker cloud builder image.
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: gcr.io/cloud-builders/docker
 # Build your docker image, use your artifact registry as the name and tag it with the commit SHA.
     args:
     - build
@@ -8,13 +8,13 @@ steps:
     - 'us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770:$COMMIT_SHA'
     - . 
 # Push the image to your artifact registry.
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: gcr.io/cloud-builders/docker
     args:
-    - 'push'
+    - push
     - 'us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770/joseph-100625770:$COMMIT_SHA']
 
 # Cloud SDK setup. 
-  - name: 'gcr.io/cloud-builders/cloud-sdk'
+  - name: gcr.io/cloud-builders/cloud-sdk
     entrypoint: 'gcloud'
     args: ['us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770/joseph-100625770:$COMMIT_SHA']
     env:
