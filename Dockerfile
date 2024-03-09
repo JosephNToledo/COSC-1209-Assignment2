@@ -8,8 +8,5 @@ WORKDIR /labtwo
 # Copy all source files 
 COPY /labtwo
 
-# Run npm install command to install node.js packages
-RUN npm install
-
 # Set the default execution command to node src/index.js
 CMD ["node", "src/index.js"]
