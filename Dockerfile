@@ -6,7 +6,7 @@ FROM node:19.7.0-alpine
 WORKDIR /labtwo
 
 # Copy all source files 
-COPY /labtwo
+COPY . /labtwo
 
 # Set the default execution command to node src/index.js
 CMD ["node", "src/index.js"]
