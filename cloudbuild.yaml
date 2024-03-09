@@ -15,7 +15,7 @@ steps:
     entrypoint: 'gcloud'
     timeout: 240s
     args: ['run', 'deploy', 
-           'joseph-100625770', 'image', 'gcr.io/cloud-computing-416703/joseph-100625770:$COMMIT_SHA', 
+           'joseph-100625770', 'image', 'gcr.io/cloud-computing-416703/joseph-100625770/joseph-100625770:$COMMIT_SHA', 
            '--region', 'us-central1']  
            
 # Provide image info. 
