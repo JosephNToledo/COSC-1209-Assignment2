@@ -15,7 +15,7 @@ steps:
     - 'CLOUDSDK_COMPUTE_REGION=us-central1'
 
 # Provide image info. 
- images:
+images:
   - 'gcr.io/cloud-computing-416703/joseph-100625770:latest' 
 
 # Set the following options: 
