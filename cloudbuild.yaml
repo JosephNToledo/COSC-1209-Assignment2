@@ -5,7 +5,7 @@ steps:
     args:
     - build
     - '-t'
-    - 'us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770:$COMMIT_SHA']
+    - 'us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770:$COMMIT_SHA'
     - . 
 # Push the image to your artifact registry.
   - name: 'gcr.io/cloud-builders/docker'
