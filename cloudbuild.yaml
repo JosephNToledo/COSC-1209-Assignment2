@@ -14,14 +14,10 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
     timeout: 240s
-    args: ['compute', 'instances', 
-           'create-with-container', 'my-vm-name',
-           '--container-image', 
-           'us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770/joseph-100625770:$COMMIT_SHA']
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'       
-
+    args: ['run', 'deploy', 
+           'joseph-100625770', 'image', 'gcr.io/cloud-computing-416703/joseph-100625770:$COMMIT_SHA', 
+           '--region', 'us-central1']  
+           
 # Provide image info. 
 images:
   - 'gcr.io/cloud-computing-416703/joseph-100625770:$COMMIT_SHA' 
