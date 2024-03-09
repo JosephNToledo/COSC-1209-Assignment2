@@ -10,9 +10,5 @@ COPY . .
 # Run npm install command to install node.js packages
 RUN npm install
 
-#Expose ports.
-EXPOSE 8080
-EXPOSE 443
-
 # Set the default execution command to node src/index.js
 CMD ["node", "src/index.js"]
