@@ -15,10 +15,13 @@ steps:
 
 # Cloud SDK setup. 
   - name: gcr.io/cloud-builders/cloud-sdk
+    args:
+    - run
+    - deploy
+    - joseph-100625770
+    - '--image'
+    - 'us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770/joseph-100625770:$COMMIT_SHA'
     entrypoint: 'gcloud'
-    args: ['us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770/joseph-100625770:$COMMIT_SHA']
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
 
 # Provide image info. 
 images:
