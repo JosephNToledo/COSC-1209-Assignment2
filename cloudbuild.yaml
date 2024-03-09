@@ -11,7 +11,7 @@ steps:
   - name: gcr.io/cloud-builders/docker
     args:
     - push
-    - 'us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770/joseph-100625770:$COMMIT_SHA'
+    - 'us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770/joseph-100625770'
 
 # Cloud SDK setup. 
   - name: gcr.io/cloud-builders/cloud-sdk:$COMMIT_SHA
@@ -19,7 +19,7 @@ steps:
     - run
     - deploy
     - '--image'
-    - 'us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770/joseph-100625770:$COMMIT_SHA'
+    - 'us-central1-docker.pkg.dev/cloud-computing-416703/joseph-100625770/joseph-100625770'
     entrypoint: 'gcloud'
 
 # Provide image info. 
