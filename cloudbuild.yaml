@@ -1,0 +1,25 @@
+steps:
+# Use the Docker cloud builder image.
+- name: 'gcr.io/cloud-builders/docker'
+# Build your docker image, use your artifact registry as the name and tag it with the commit SHA.
+  args: ['build', 't', 'us-central1-docker.pkg.dev/$cloud-computing-416703/joseph-100625770/joseph-100625770:$COMMIT_SHA']
+# Push the image to your artifact registry.
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/$cloud-computing-416703/joseph-100625770/joseph-100625770']
+
+# Cloud SDK setup. 
+- name: 'gcr.io/cloud-builders/cloud-sdk'
+  entrypoint: 'gcloud'
+  args: ['us-central1-docker.pkg.dev/$cloud-computing-416703/joseph-100625770/joseph-100625770']
+  env:
+    - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+
+# Provide image info. 
+ images:
+  - 'gcr.io/cloud-computing-416703/joseph-100625770:latest' 
+
+# Set the following options: 
+# Set the defaultLogsBucketBehavior to REGIONAL_USER_OWNED_BUCKET.
+#   - Note: this will create a new bucket in the same region as your build project that will be used to store build logs.
+options:
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
